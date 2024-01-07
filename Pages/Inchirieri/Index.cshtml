@@ -1,0 +1,54 @@
+﻿@page
+@model Proiect_Farcas_Gherghelas.Pages.Inchirieri.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Magazine de inchiriat echipament</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inchiriere[0].Magazin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inchiriere[0].Locatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inchiriere[0].Contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inchiriere[0].Partie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Inchiriere) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Magazin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Locatie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Partie.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
